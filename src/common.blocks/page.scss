@@ -1,7 +1,8 @@
-@use "../scss/variables" as *;
-@use "../scss/mixins";
+@use '../scss/variables' as *;
+@use '../scss/mixins';
 
-html, body.page {
+html,
+body.page {
 	height: 100%;
 	font-family: $font;
 	font-size: $baseFontSize;
