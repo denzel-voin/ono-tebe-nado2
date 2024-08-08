@@ -9,6 +9,7 @@ interface IModalData {
 export class Modal extends Component<IModalData> {
     protected _closeButton: HTMLButtonElement;
     protected _content: HTMLElement;
+    protected page = ensureElement('.page__wrapper');
 
     constructor(container: HTMLElement, protected events: IEvents) {
         super(container);
@@ -28,12 +29,14 @@ export class Modal extends Component<IModalData> {
     open() {
         this.container.classList.add('modal_active');
         this.events.emit('modal:open');
+        this.page.classList.add('page__wrapper_locked');
     }
 
     close() {
         this.container.classList.remove('modal_active');
         this.content = null;
         this.events.emit('modal:close');
+        this.page.classList.remove('page__wrapper_locked');
     }
 
     render(data: IModalData): HTMLElement {
